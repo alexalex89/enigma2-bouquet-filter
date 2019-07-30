@@ -7,5 +7,4 @@ Uses Python2.7, since this is the preinstalled version on the VU+ boxes with VTI
 
 ## TODO
 
-* Unit testing
 * Make country code and input/output file configurable
