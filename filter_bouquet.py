@@ -44,7 +44,9 @@ if __name__ == "__main__":
                       help="Path to output filename (Bouquet). Default: Same as input", type="string")
     parser.add_option("-c", "--country", dest="country_code", default="DE",
                       help="Country code to search and filter for. Default: DE",
-                      type="string", action="callback", callback=lambda x: x.upper())
+                      type="string")
     options, _ = parser.parse_args()
 
-    filter_bouquet(country_code=options.country_code, input_filename=options.input, output_filename=options.output)
+    country_code = options.country_code.upper()
+
+    filter_bouquet(country_code=country_code, input_filename=options.input, output_filename=options.output)
