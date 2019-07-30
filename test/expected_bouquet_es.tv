@@ -1,0 +1,5 @@
+#NAME IPTV_OTT_IPTV
+#DESCRIPTION ##### ES - HD  #####
+#SERVICE 1:0:1:0:0:0:0:0:0:0:http%3A//iptv.com%3A80/80
+#DESCRIPTION SOME SENDER 9
+#SERVICE 1:0:1:0:0:0:0:0:0:0:http%3A//iptv.com%3A80/9
