@@ -1,4 +1,4 @@
-import optparse
+import argparse
 
 
 def filter_bouquet(country_code, input_filename, output_filename):
@@ -34,19 +34,17 @@ def filter_bouquet(country_code, input_filename, output_filename):
 
 
 if __name__ == "__main__":
-    parser = optparse.OptionParser()
-    parser.add_option("-i", "--input", dest="input",
-                      default="/etc/enigma2/userbouquet.IPTV_OTT_IPTV__tv_.tv",
-                      help="Path to input filename (Bouquet). Default: /etc/enigma2/userbouquet.IPTV_OTT_IPTV__tv_.tv",
-                      type="string")
-    parser.add_option("-o", "--output", dest="output",
-                      default=None,
-                      help="Path to output filename (Bouquet). Default: Same as input", type="string")
-    parser.add_option("-c", "--country", dest="country_code", default="DE",
-                      help="Country code to search and filter for. Default: DE",
-                      type="string")
-    options, _ = parser.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-i", "--input", dest="input",
+                        default="/etc/enigma2/userbouquet.IPTV_OTT_IPTV__tv_.tv",
+                        help="Path to input filename (Bouquet). Default: /etc/enigma2/userbouquet.IPTV_OTT_IPTV__tv_.tv",
+                        type=str)
+    parser.add_argument("-o", "--output", dest="output", default=None,
+                        help="Path to output filename (Bouquet). Default: Same as input", type=str)
+    parser.add_argument("-c", "--country", dest="country_code", default="DE",
+                        help="Country code to search and filter for. Default: DE", type=str)
+    args = parser.parse_args()
 
-    country_code = options.country_code.upper()
+    country_code = args.country_code.upper()
 
-    filter_bouquet(country_code=country_code, input_filename=options.input, output_filename=options.output)
+    filter_bouquet(country_code=country_code, input_filename=args.input, output_filename=args.output)

@@ -1,6 +1,7 @@
 import unittest
 import os
 import shutil
+import subprocess
 
 from filter_bouquet import filter_bouquet
 
@@ -31,3 +32,6 @@ class TestFilterBouquet(unittest.TestCase):
         with open("test.tv", "rb") as f_actual, open("input_bouquet.tv", "rb") as f_expected:
             self.assertNotEqual(f_expected.read(), f_actual.read())
         os.unlink("test.tv")
+
+    def test_command_line(self):
+        subprocess.check_call(["python2.7", "../filter_bouquet.py", "-i", "input_bouquet.tv", "-o", TestFilterBouquet.tmp_filename, "-c", "DE"])
